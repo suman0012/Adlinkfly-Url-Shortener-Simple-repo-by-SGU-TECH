@@ -127,7 +127,7 @@ async function shortenUrl(chatId, url) {
   }
 
   try {
-    const apiUrl = `https://dmrs.in/api?api=9ab5d177b6098c683b06bb0e3095c541e5ad0345&url=yourdestinationlink.com&alias=CustomAlias
+    const apiUrl = `https://dmrs.in/api?api=${adlinkflyToken}&url=${encodeURIComponent(url)}`;
 
     const response = await axios.get(apiUrl);
     return response.data.shortenedUrl;
