@@ -29,7 +29,7 @@ bot.onText(/\/start/, (msg) => {
     + 'To shorten a URL, just type or paste the URL directly in the chat, and the bot will provide you with the shortened URL.\n\n'
     + 'If you haven\'t set your Indishort API token yet, use the command:\n/setapi YOUR_Indishort_API_TOKEN\n\n'
     + 'How To Use Me 👇👇 \n\n'
-  + '✅1. Got To https://indishort.live & Complete Your Registration.\n\n'
+  + '✅1. Got To https://dmrs.in/ & Complete Your Registration.\n\n'
   + '✅2. Then Copy Your API Key from here https://indishort.live/member/tools/api Copy Your API Only. \n\n'
   + '✅3. Then add your API using command /setapi \n\n' 
   + 'Example: /setapi c49399f821fc020161bc2a31475ec59f35ae5b4\n\n'
@@ -122,12 +122,13 @@ async function shortenUrl(chatId, url) {
   const adlinkflyToken = getUserToken(chatId);
 
   if (!adlinkflyToken) {
-    bot.sendMessage(chatId, 'Please set up 🎃 your INDISHORT API token first. 🔮 Use the command: /setapi YOUR_INDISHORT_API_TOKEN');
+    bot.sendMessage(chatId, 'Please set up 🎃 your Dmrs API token first. 🔮 Use the command: /setapi YOUR_INDISHORT_API_TOKEN');
     return null;
   }
 
   try {
-    const apiUrl = `https://dmrs.in/api?api=${adlinkflyToken}&url=${encodeURIComponent(url)}`;
+    const apiUrl = `https://dmrs.in/api?api=9ab5d177b6098c683b06bb0e3095c541e5ad0345&url=yourdestinationlink.com&alias=CustomAlias
+
     const response = await axios.get(apiUrl);
     return response.data.shortenedUrl;
   } catch (error) {
